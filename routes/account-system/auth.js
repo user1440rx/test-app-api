@@ -48,7 +48,6 @@ router.post('/register', async (req, res) => {
 })
 
 
-
 router.post('/login', async (req, res)=> {
     try {
         const verifyLogResponse = await verifyLogin(req.body);
@@ -68,7 +67,7 @@ router.post('/login', async (req, res)=> {
                 
                 
                 // Login (Storing Cookie)
-                res.cookie('userid', loginToken, {httpOnly: true, maxAge: 31536000000})
+                res.cookie('userid', loginToken, {httpOnly: true, maxAge: 31536000000, secure: true})
                 res.send(`Login Verified Token.`);
             }
         }
@@ -85,5 +84,11 @@ router.get('/list', async (req, res) => {
     ]);
     res.send(userLoginData);
 })
+
+router.get('/logout', async (req, res)=> {
+    res.clearCookie("userid");
+    res.send('removed');
+})
+
 
 module.exports = router;
