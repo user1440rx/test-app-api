@@ -1,6 +1,6 @@
 const cors = require('cors');
 
-var allowlist = ['http://localhost:3000', 'https://test-app-delta-pink.vercel.app']
+var allowlist = ['http://localhost:3000']
 var corsOptions = {
     credentials: true,
     origin: '*',
