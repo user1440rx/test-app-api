@@ -1,6 +1,6 @@
 const cors = require('cors');
 
-var allowlist = ['http://localhost:3000']
+var allowlist = ['http://localhost:4000']
 var corsOptions = {
     credentials: true,
     origin: allowlist,
