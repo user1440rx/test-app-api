@@ -10,6 +10,7 @@ var bcrypt = require('bcryptjs');
 
 // Verify Registration
 const {verifyRegistration, verifyLogin} = require('../../middlewares/verifyRegLog');
+const verifyUser = require('../../middlewares/authJwt')
 
 
 
@@ -90,5 +91,25 @@ router.get('/logout', async (req, res)=> {
     res.send('removed');
 })
 
+
+router.get('/check-status', async (req, res) => {
+    
+    const token = req.cookies.userid;
+  
+    if (!token) {
+      res.status(401, '{"message": "Unauthorized"}');
+    }
+
+    try {
+      const verified = jwt.verify(token, process.env.LOGIN_TOKEN_SECRET);
+      req.user = verified;
+      res.send('{"message": "Authorized"}');
+    }
+    
+    catch (err) {
+      res.status(401, '{"message": "Unauthorized"}');
+    }
+
+})
 
 module.exports = router;

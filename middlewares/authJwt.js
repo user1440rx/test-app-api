@@ -5,7 +5,7 @@ verifyToken = (req, res, next) => {
     const token = req.cookies.userid;
   
     if (!token) {
-      res.status(401).send('{ message: "Unauthorized" }');
+      res.status(401, '{"message": "Unauthorized"}');
     }
 
     try {
@@ -15,7 +15,7 @@ verifyToken = (req, res, next) => {
     }
     
     catch (err) {
-      //res.status(400).send('{ message: "Unauthorized" }');
+      res.status(401, '{"message": "Unauthorized"}');
     }
 
 };
