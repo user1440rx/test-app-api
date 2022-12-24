@@ -31,6 +31,11 @@ app.use('/cart', cartRoute);
 const productRoute = require('./routes/products/item')
 app.use('/products', productRoute);
 
+// Orders Route
+const ordersRoute = require('./routes/cart/orders')
+app.use('/orders', ordersRoute);
+
+
 
 
 

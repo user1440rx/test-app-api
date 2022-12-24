@@ -1,5 +1,4 @@
 const express = require('express');
-
 const router = express.Router();
 const User = require('../../mdb-models/User');
 
@@ -10,8 +9,6 @@ var bcrypt = require('bcryptjs');
 
 // Verify Registration
 const {verifyRegistration, verifyLogin} = require('../../middlewares/verifyRegLog');
-const verifyUser = require('../../middlewares/authJwt')
-
 
 
 router.post('/register', async (req, res) => {
