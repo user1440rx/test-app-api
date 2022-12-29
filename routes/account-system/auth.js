@@ -84,7 +84,7 @@ router.get('/list', async (req, res) => {
 })
 
 router.get('/logout', async (req, res)=> {
-    res.clearCookie("userid");
+    res.cookie('userid', '', {httpOnly: true, maxAge: 0, secure: true, sameSite: 'none'})
     res.send('removed');
 })
 
