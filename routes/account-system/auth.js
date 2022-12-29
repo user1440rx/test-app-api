@@ -65,7 +65,7 @@ router.post('/login', async (req, res)=> {
                 
                 
                 // Login (Storing Cookie)
-                res.cookie('userid', loginToken, {httpOnly: true, maxAge: 31536000000, secure: true})
+                res.cookie('userid', loginToken, {httpOnly: true, maxAge: 31536000000, secure: true, sameSite: 'none'})
                 res.send(`Login Verified Token.`);
             }
         }
