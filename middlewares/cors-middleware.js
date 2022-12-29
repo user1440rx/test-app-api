@@ -1,6 +1,6 @@
 const cors = require('cors');
 
-var allowlist = ['http://localhost:3000']
+var allowlist = ['http://localhost:3000', 'https://vercel.app', 'https://test-app-nu-one.vercel.app']
 var corsOptions = {
     credentials: true,
     origin: allowlist,
