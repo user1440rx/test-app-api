@@ -8,7 +8,7 @@ const verifyUser = require('../../middlewares/authJwt')
 router.get('/list', verifyUser, async (req, res) => {
     
     const getUserData = await User.findOne({_id: req.user._id});
-    const ordersList = getUserData.order;
+    const ordersList = getUserData.order.reverse();
     if (ordersList.length===0) {
         res.send('"message": "You have not made any orders yet :("')
     }
